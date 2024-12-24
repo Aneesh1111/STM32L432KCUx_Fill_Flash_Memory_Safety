@@ -175,11 +175,11 @@ SECTIONS
     . = ALIGN(8);
   } >RAM
   
-  /* Fill unused flash memory with the instruction: 0xDEADC0DE */
+  /* Fill unused flash memory with the instruction: reset (starts program again) */
   .fill :
   {
     . = ALIGN(4); /* Ensure alignment */
-    FILL(0xDEADC0DE); /* Fill unused space with the specified value */
+    FILL(ORIGIN(FLASH)); /* Fill unused space with the specified value */
     . += (ORIGIN(FLASH) + LENGTH(FLASH)) - .; /* Calculate remaining space dynamically */
   } >FLASH
 
