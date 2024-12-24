@@ -42,7 +42,7 @@ In embedded systems, undefined behavior can occur if the program counter accesse
 .fill (NOLOAD) :
 {
   . = ALIGN(4);
-  FILL(0xDEADC0DE); /* Replace with reset instruction if required */
+  FILL(ORIGIN(FLASH)); /* Replace with reset instruction if required */
   . += (ORIGIN(FLASH) + LENGTH(FLASH)) - .;
 } >FLASH
 ```
